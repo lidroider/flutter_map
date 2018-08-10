@@ -61,12 +61,15 @@ class Marker {
   final double width;
   final double height;
   final Anchor _anchor;
+  /// always keep widget or not, set to true on statefulwidget; use for widget recieve status from notification stream;
+  final bool alwaysKeepWidget;
 
   Marker({
     this.point,
     this.builder,
     this.width = 30.0,
     this.height = 30.0,
+    this.alwaysKeepWidget = false,
     AnchorPos anchor,
     Anchor anchorOverride,
   }) : this._anchor = anchorOverride ?? new Anchor._(width, height, anchor);
@@ -96,7 +99,7 @@ class MarkerLayer extends StatelessWidget {
           var pixelPosY =
               (pos.y - (markerOpt.height - markerOpt._anchor.top)).toDouble();
 
-          if (!latlngBounds.contains(markerOpt.point)) {
+          if (!latlngBounds.contains(markerOpt.point) && !markerOpt.alwaysKeepWidget) {
             continue;
           }
 
