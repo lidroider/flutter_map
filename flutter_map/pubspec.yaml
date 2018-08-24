@@ -5,9 +5,6 @@ authors:
 - John Ryan <john.p.ryan4@gmail.com>
 homepage: https://github.com/apptreesoftware/flutter_map
 
-environment:
-  sdk: ">=1.19.0 <2.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
